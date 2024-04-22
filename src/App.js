@@ -6,9 +6,12 @@ import News from "./components/News";
 // import Home from "./components/Home1";
 import { Routes, Route } from "react-router-dom";
 import LoadingBar from 'react-top-loading-bar'
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
+import About from "./components/About";
 
 export default class App extends Component {
-  apiKey = process.env.REACT_NEWS_API_KEY;
+  apiKey = process.env.REACT_APP_API_KEY;
   state = {
     progress: 0
   }
@@ -32,9 +35,22 @@ export default class App extends Component {
           />
           <div className="container mt-5">
             <Routes>
+              <Route path="/" element = {<Login />} />
               <Route
                 exact
-                path="/"
+                path="/home"
+                element={
+                  <News setProgress={this.setProgress} apiKey={this.apikey}
+                    key="general"
+                    pageSize={this.pageSize}
+                    country="in"
+                    category="general"
+                  />
+                }
+              />
+              <Route
+                exact
+                path="/news"
                 element={
                   <News setProgress={this.setProgress} apiKey={this.apikey}
                     key="general"
@@ -130,6 +146,9 @@ export default class App extends Component {
               />
 
               {/* <Route path="/news" element={<Home />} /> */}
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/about" element={<About />} />
             </Routes>
           </div>
         </div>

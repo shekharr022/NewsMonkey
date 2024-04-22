@@ -7,7 +7,7 @@ export default class Navbar extends Component {
       <div>
         <nav className="navbar navbar-expand-lg fixed-top bg-light text-light">
           <div className="container-fluid">
-            <Link className="navbar-brand" to="/">
+            <Link className="navbar-brand" to="/news">
               NewsMonkey
             </Link>
             <button
@@ -62,15 +62,10 @@ export default class Navbar extends Component {
                 </li>
               </ul>
               <form className="d-flex" role="search">
-                <input
-                  className="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button className="btn btn-outline-success" type="submit">
-                  Search
+                <Link to="login"><button className="btn btn-outline-primary mx-5" type="button">
+                  Login
                 </button>
+                </Link>
               </form>
             </div>
           </div>
